@@ -13,6 +13,7 @@ export default function Navbar() {
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
+  console.log("router", router);
 
   function closePanel() {
     setOpen(false);
@@ -48,14 +49,22 @@ export default function Navbar() {
                   <Link
                     href="skills"
                     className={clsx(
-                      "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                      "rounded-md px-2 py-2 text-sm font-medium",
+                      router.pathname === "/skills"
+                        ? "underline"
+                        : "hover:scale-110"
                     )}
                   >
                     Compétences
                   </Link>
                   <Link
                     href="portfolio"
-                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white"
+                    className={clsx(
+                      "rounded-md px-2 py-2 text-sm font-medium",
+                      router.pathname === "/portfolio"
+                        ? "underline"
+                        : "hover:scale-110"
+                    )}
                   >
                     Portfolio
                   </Link>

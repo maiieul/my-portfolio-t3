@@ -3,7 +3,7 @@ import BackgroundParticles from "@/components/BackgroundParticles";
 import Head from "next/head";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
+
 const Home: NextPage = () => {
   const [windowHeight, setWindowHeight] = useState(0);
   console.log("windowHeight", windowHeight);
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
             className={clsx(
               windowHeight < 600 ? "mt-14" : "",
 
-              "text-4xl font-bold text-gray-800 sm:text-5xl md:text-6xl"
+              "max-w-2xl text-4xl font-bold text-gray-800 sm:text-5xl md:text-6xl"
             )}
           >
             Une vision à 360° pour faire décoller vos projets 🚀
@@ -86,10 +86,6 @@ const Home: NextPage = () => {
             </svg>
             <span>En savoir plus</span>
           </button>
-          {/* <br />
-          <div style={{ maxWidth: "652.38px" }} className="w-full">
-            <HomeTypewriterMain />
-          </div> */}
         </div>
       </main>
     </>
