@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import SkillsCardList from "@/components/SkillsCardList";
 import SkillsSubtitle from "@/components/SkillsSubtitle";
 
@@ -77,6 +78,7 @@ import chineseFlag from "../../public/images/skills/chineseFlag.png";
 import germanFlag from "../../public/images/skills/germanFlag.png";
 import esperantoFlag from "../../public/images/skills/esperantoFlag.png";
 import spanishFlag from "../../public/images/skills/spanishFlag.png";
+import { Transition } from "@headlessui/react";
 
 // Ajouter des images (ou du texte qui s'écrit tout seul) a gauche/droit de chanque section/sous-section
 
@@ -483,46 +485,61 @@ const langues = [
   },
 ];
 
-export default function Example() {
+export default function Skills() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
   return (
     <div className="px-10 pt-14 xl:flex xl:flex-col xl:items-center">
-      <div>
-        <h1 className="mb-3 text-lg font-semibold sm:text-xl">
-          Développement Web
-        </h1>
-        <SkillsSubtitle subtitle="Langages de programmation" />
-        <SkillsCardList skills={programmingLanguages} />
-        <SkillsSubtitle subtitle="Markup" />
-        <SkillsCardList skills={markupLanguages} />
-        <SkillsSubtitle subtitle="UI" />
-        <SkillsCardList skills={UXUI} />
-        <SkillsSubtitle subtitle="Frameworks" />
-        <SkillsCardList skills={frameworks} />
-        <SkillsSubtitle subtitle="APIs" />
-        <SkillsCardList skills={APIs} />
-        <SkillsSubtitle subtitle="Bases de données" />
-        <SkillsCardList skills={databases} />
-        <SkillsSubtitle subtitle="DevOps" />
-        <SkillsCardList skills={devops} />
-        <SkillsSubtitle subtitle="Sécurité" />
-        <SkillsCardList skills={security} />
-        <SkillsSubtitle subtitle="Tests" />
-        <SkillsCardList skills={testing} />
-        <SkillsSubtitle subtitle="Version Control" />
-        <SkillsCardList skills={versionControl} />
-        <SkillsSubtitle subtitle="Editeurs de code" />
-        <SkillsCardList skills={codeEditors} />
-        <h1 className="mb-3 text-lg font-semibold sm:text-xl">
-          Gestion de projet
-        </h1>
-        <SkillsCardList skills={projectManagement} />
-        <h1 className="mb-3 text-lg font-semibold sm:text-xl">Marketing</h1>
-        <SkillsCardList skills={marketing} />
-        <h1 className="mb-3 text-lg font-semibold sm:text-xl">Droit</h1>
-        <SkillsCardList skills={law} />
-        <h1 className="mb-3 text-lg font-semibold sm:text-xl">Communication</h1>
-        <SkillsCardList skills={langues} />
-      </div>
+      <Transition
+        show={show}
+        enter="transition-opacity duration-1000"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+      >
+        <div>
+          <h1 className="mb-3 text-lg font-semibold sm:text-xl">
+            Développement Web
+          </h1>
+          <SkillsSubtitle subtitle="Langages de programmation" />
+          <SkillsCardList skills={programmingLanguages} />
+          <SkillsSubtitle subtitle="Markup" />
+          <SkillsCardList skills={markupLanguages} />
+          <SkillsSubtitle subtitle="UI" />
+          <SkillsCardList skills={UXUI} />
+          <SkillsSubtitle subtitle="Frameworks" />
+          <SkillsCardList skills={frameworks} />
+          <SkillsSubtitle subtitle="APIs" />
+          <SkillsCardList skills={APIs} />
+          <SkillsSubtitle subtitle="Bases de données" />
+          <SkillsCardList skills={databases} />
+          <SkillsSubtitle subtitle="DevOps" />
+          <SkillsCardList skills={devops} />
+          <SkillsSubtitle subtitle="Sécurité" />
+          <SkillsCardList skills={security} />
+          <SkillsSubtitle subtitle="Tests" />
+          <SkillsCardList skills={testing} />
+          <SkillsSubtitle subtitle="Version Control" />
+          <SkillsCardList skills={versionControl} />
+          <SkillsSubtitle subtitle="Editeurs de code" />
+          <SkillsCardList skills={codeEditors} />
+          <h1 className="mb-3 text-lg font-semibold sm:text-xl">
+            Gestion de projet
+          </h1>
+          <SkillsCardList skills={projectManagement} />
+          <h1 className="mb-3 text-lg font-semibold sm:text-xl">Marketing</h1>
+          <SkillsCardList skills={marketing} />
+          <h1 className="mb-3 text-lg font-semibold sm:text-xl">Droit</h1>
+          <SkillsCardList skills={law} />
+          <h1 className="mb-3 text-lg font-semibold sm:text-xl">
+            Communication
+          </h1>
+          <SkillsCardList skills={langues} />
+        </div>
+      </Transition>
     </div>
   );
 }
