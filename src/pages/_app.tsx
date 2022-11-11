@@ -112,7 +112,7 @@ function MyApp({ Component }: AppTypeWithLayout): JSX.Element {
 <link rel='apple-touch-startup-image' href='/images/apple_splash_640.png' sizes='640x1136' />
 --> */}
       </Head>
-      <LayoutApp>{getLayout(<Component />)}</LayoutApp>
+      <LayoutApp data-theme="light">{getLayout(<Component />)}</LayoutApp>
     </>
   );
 }

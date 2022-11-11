@@ -21,9 +21,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="">
+      <nav>
         <div className="absolute mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-12 items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Image
@@ -49,10 +49,10 @@ export default function Navbar() {
                   <Link
                     href="skills"
                     className={clsx(
-                      "rounded-md px-2 py-2 text-sm font-medium",
+                      "rounded-md px-2 text-sm font-medium",
                       router.pathname === "/skills"
                         ? "underline"
-                        : "hover:scale-110"
+                        : "hover:scale-105"
                     )}
                   >
                     Compétences
@@ -60,13 +60,24 @@ export default function Navbar() {
                   <Link
                     href="portfolio"
                     className={clsx(
-                      "rounded-md px-2 py-2 text-sm font-medium",
+                      "rounded-md px-2 text-sm font-medium",
                       router.pathname === "/portfolio"
                         ? "underline"
-                        : "hover:scale-110"
+                        : "hover:scale-105"
                     )}
                   >
                     Portfolio
+                  </Link>
+                  <Link
+                    href="services"
+                    className={clsx(
+                      "rounded-md px-2 text-sm font-medium",
+                      router.pathname === "/services"
+                        ? "underline"
+                        : "hover:scale-105"
+                    )}
+                  >
+                    Services
                   </Link>
                   {/* <Link
                     href="#"
