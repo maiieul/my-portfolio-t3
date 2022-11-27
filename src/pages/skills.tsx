@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import SkillsCardList from "@/components/SkillsCardList";
+/* eslint-disable react/no-unescaped-entities */
+import { useState, useEffect, useRef } from "react";
+import SkillsCardsList from "@/components/SkillsCardsList";
 import SkillsSubtitle from "@/components/SkillsSubtitle";
 
 import javascript from "../../public/images/skills/javascript.png";
@@ -79,13 +80,14 @@ import germanFlag from "../../public/images/skills/germanFlag.png";
 import esperantoFlag from "../../public/images/skills/esperantoFlag.png";
 import spanishFlag from "../../public/images/skills/spanishFlag.png";
 import { Transition } from "@headlessui/react";
+import { ArrowDownCircleIcon } from "@heroicons/react/24/outline";
 
 // Ajouter des images (ou du texte qui s'écrit tout seul) a gauche/droit de chanque section/sous-section
 
 const programmingLanguages = [
   // Programming Languages
   {
-    name: "Javascript/NodeJS",
+    name: "Javascript",
     level: 4,
     image: javascript,
   },
@@ -488,58 +490,114 @@ const langues = [
 export default function Skills() {
   const [show, setShow] = useState(false);
 
+  const devWebRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setShow(true);
   }, []);
 
   return (
-    <div className="px-10 pt-14 xl:flex xl:flex-col xl:items-center">
-      <Transition
-        show={show}
-        enter="transition-opacity duration-1000"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-      >
-        <div>
-          <h1 className="mb-3 text-lg font-semibold sm:text-xl">
+    <Transition
+      show={show}
+      enter="transition-opacity duration-500"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+    >
+      <div className="flex items-center justify-center">
+        <div className="w-full max-w-7xl px-10 py-16 text-center">
+          <h2
+            ref={devWebRef}
+            className="mb-3 pt-6 text-3xl font-semibold sm:text-4xl"
+          >
             Développement Web
-          </h1>
-          <SkillsSubtitle subtitle="Langages de programmation" />
-          <SkillsCardList skills={programmingLanguages} />
-          <SkillsSubtitle subtitle="Markup" />
-          <SkillsCardList skills={markupLanguages} />
-          <SkillsSubtitle subtitle="UI" />
-          <SkillsCardList skills={UXUI} />
-          <SkillsSubtitle subtitle="Frameworks" />
-          <SkillsCardList skills={frameworks} />
-          <SkillsSubtitle subtitle="APIs" />
-          <SkillsCardList skills={APIs} />
-          <SkillsSubtitle subtitle="Bases de données" />
-          <SkillsCardList skills={databases} />
-          <SkillsSubtitle subtitle="DevOps" />
-          <SkillsCardList skills={devops} />
-          <SkillsSubtitle subtitle="Sécurité" />
-          <SkillsCardList skills={security} />
-          <SkillsSubtitle subtitle="Tests" />
-          <SkillsCardList skills={testing} />
-          <SkillsSubtitle subtitle="Version Control" />
-          <SkillsCardList skills={versionControl} />
-          <SkillsSubtitle subtitle="Editeurs de code" />
-          <SkillsCardList skills={codeEditors} />
-          <h1 className="mb-3 text-lg font-semibold sm:text-xl">
-            Gestion de projet
-          </h1>
-          <SkillsCardList skills={projectManagement} />
-          <h1 className="mb-3 text-lg font-semibold sm:text-xl">Marketing</h1>
-          <SkillsCardList skills={marketing} />
-          <h1 className="mb-3 text-lg font-semibold sm:text-xl">Droit</h1>
-          <SkillsCardList skills={law} />
-          <h1 className="mb-3 text-lg font-semibold sm:text-xl">
-            Communication
-          </h1>
-          <SkillsCardList skills={langues} />
+          </h2>
+          <div className="sm:flex">
+            <SkillsSubtitle className="" subtitle="Langages de programmation" />
+            <SkillsCardsList skills={programmingLanguages} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="Markup" />
+            <SkillsCardsList
+              className="sm:order-first"
+              skills={markupLanguages}
+            />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="UI" />
+            <SkillsCardsList skills={UXUI} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="Frameworks" />
+            <SkillsCardsList className="sm:order-first" skills={frameworks} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="APIs" />
+            <SkillsCardsList skills={APIs} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="Bases de données" />
+            <SkillsCardsList className="sm:order-first" skills={databases} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="DevOps" />
+            <SkillsCardsList skills={devops} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="Sécurité" />
+            <SkillsCardsList className="sm:order-first" skills={security} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="Tests" />
+            <SkillsCardsList skills={testing} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="Version Control" />
+            <SkillsCardsList
+              className="sm:order-first"
+              skills={versionControl}
+            />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          <div className="sm:flex">
+            <SkillsSubtitle subtitle="Editeurs de code" />
+            <SkillsCardsList skills={codeEditors} />
+          </div>
+          <hr className="m-auto mt-6 mb-12 w-1/2" />
+          {/* <div className="sm:flex">
+            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
+              Gestion de projet
+            </h2>
+            <SkillsCardsList skills={projectManagement} />
+          </div>
+          <div className="sm:flex">
+            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
+              Marketing
+            </h2>
+            <SkillsCardsList skills={marketing} />
+          </div>
+          <div className="sm:flex">
+            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
+              Droit
+            </h2>
+            <SkillsCardsList skills={law} />
+          </div>
+          <div className="sm:flex">
+            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
+              Communication
+            </h2>
+          <SkillsCardsList skills={langues} />
+          </div> */}
         </div>
-      </Transition>
-    </div>
+      </div>
+    </Transition>
   );
 }

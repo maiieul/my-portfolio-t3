@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import type { ReactElement, ReactNode } from "react";
+// import { MDXProvider } from "@mdx-js/react";
+
 import { type AppType } from "next/app";
 import Head from "next/head";
 import LayoutApp from "@/components/LayoutApp";
@@ -7,6 +9,8 @@ import LayoutApp from "@/components/LayoutApp";
 import { trpc } from "../utils/trpc";
 
 import "../styles/globals.css";
+
+// import { Markdown } from "@/components/Markdown";
 
 export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
   P,
@@ -18,7 +22,12 @@ export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
 type AppTypeWithLayout = AppType & {
   Component: NextPageWithLayout;
 };
-
+// const components = {
+//   h1: Markdown.H1,
+//   h2: Markdown.H2,
+//   h3: Markdown.H3,
+//   p: Markdown.P,
+// };
 function MyApp({ Component }: AppTypeWithLayout): JSX.Element {
   const getLayout = Component.getLayout ?? ((page: ReactElement) => page);
 
@@ -112,7 +121,9 @@ function MyApp({ Component }: AppTypeWithLayout): JSX.Element {
 <link rel='apple-touch-startup-image' href='/images/apple_splash_640.png' sizes='640x1136' />
 --> */}
       </Head>
+      {/* <MDXProvider components={components}> */}
       <LayoutApp data-theme="light">{getLayout(<Component />)}</LayoutApp>
+      {/* </MDXProvider> */}
     </>
   );
 }

@@ -22,8 +22,8 @@ export default function Navbar() {
   return (
     <>
       <nav>
-        <div className="absolute mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-12 items-center justify-between">
+        <div className="absolute z-50 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Image
@@ -47,12 +47,23 @@ export default function Navbar() {
                 <div className="flex space-x-4">
                   {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                   <Link
+                    href="about"
+                    className={clsx(
+                      "rounded-md px-2 text-sm font-medium",
+                      router.pathname === "/about"
+                        ? "font-semibold underline"
+                        : "hover:scale-105 hover:font-semibold"
+                    )}
+                  >
+                    À propos
+                  </Link>
+                  <Link
                     href="skills"
                     className={clsx(
                       "rounded-md px-2 text-sm font-medium",
                       router.pathname === "/skills"
-                        ? "underline"
-                        : "hover:scale-105"
+                        ? "font-semibold underline"
+                        : "hover:scale-105 hover:font-semibold"
                     )}
                   >
                     Compétences
@@ -62,22 +73,11 @@ export default function Navbar() {
                     className={clsx(
                       "rounded-md px-2 text-sm font-medium",
                       router.pathname === "/portfolio"
-                        ? "underline"
-                        : "hover:scale-105"
+                        ? "font-semibold underline"
+                        : "hover:scale-105 hover:font-semibold"
                     )}
                   >
                     Portfolio
-                  </Link>
-                  <Link
-                    href="services"
-                    className={clsx(
-                      "rounded-md px-2 text-sm font-medium",
-                      router.pathname === "/services"
-                        ? "underline"
-                        : "hover:scale-105"
-                    )}
-                  >
-                    Services
                   </Link>
                   {/* <Link
                     href="#"

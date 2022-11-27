@@ -70,7 +70,7 @@ const Home: NextPage = () => {
           <div className="flex min-h-screen w-full flex-col items-center justify-center p-4 text-center">
             <h1
               className={clsx(
-                windowHeight < 600 ? "mt-28" : "",
+                windowHeight < 540 ? "mt-12" : "",
                 "max-w-2xl text-4xl font-bold text-gray-800 sm:text-5xl md:text-6xl"
               )}
             >
@@ -79,14 +79,14 @@ const Home: NextPage = () => {
             <br />
 
             <h2 className="max-w-5xl text-lg text-gray-800 sm:text-xl md:text-2xl">
-              Avec mon profil international, mon expérience entrepreneuriale et
-              mes compétences techniques dans le web, je peux vous aider à voir
-              l&apos;ensemble du tableau et ainsi minimiser les risques
-              d&apos;échecs à toute étape de votre projet.
+              Avec mon profil international et mon expérience entrepreneuriale
+              en tant que développeur web, je peux vous aider à voir
+              l&apos;ensemble du tableau dans les détails et ainsi minimiser les
+              risques d&apos;échecs à toute étape de votre projet.
             </h2>
             <br />
             <button
-              onClick={() => router.push("/services")}
+              onClick={() => router.push("/about")}
               className="inline-flex items-center rounded-full bg-gray-800 py-3 px-5 font-bold text-white transition delay-75 ease-in-out hover:translate-y-1 hover:scale-110 hover:bg-gray-700 active:scale-95"
             >
               <InformationCircleIcon className="mr-2 h-5 w-5" />

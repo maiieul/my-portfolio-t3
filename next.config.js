@@ -10,11 +10,17 @@
  */
 
 // !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+});
 
 const withPWA = require("next-pwa")({
   dest: "public",
   // disable: process.env.NODE_ENV === 'development',
   //...
+});
+module.exports = withMDX({
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 });
 
 module.exports = withPWA({
