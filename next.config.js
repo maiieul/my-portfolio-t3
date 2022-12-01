@@ -19,9 +19,6 @@ const withPWA = require("next-pwa")({
   // disable: process.env.NODE_ENV === 'development',
   //...
 });
-module.exports = withMDX({
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
-});
 
 module.exports = withPWA({
   webpack: (config) => {
@@ -44,4 +41,8 @@ module.exports = withPWA({
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+});
+
+module.exports = withMDX({
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 });

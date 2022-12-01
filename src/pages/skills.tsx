@@ -1,7 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
+import type { ReactNode } from "react";
+import type { StaticImageData } from "next/image";
+
 import { useState, useEffect, useRef } from "react";
-import SkillsCardsList from "@/components/SkillsCardsList";
-import SkillsSubtitle from "@/components/SkillsSubtitle";
+import Typewriter from "typewriter-effect/dist/core";
+import Image from "next/image";
+import { Rating } from "react-simple-star-rating";
+import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
+import { Transition } from "@headlessui/react";
+import clsx from "clsx";
 
 import javascript from "../../public/images/skills/javascript.png";
 import typescript from "../../public/images/skills/typescript.svg";
@@ -30,12 +37,13 @@ import neo4j from "../../public/images/skills/neo4j.png";
 import mongoDB from "../../public/images/skills/mongoDB.png";
 import redis from "../../public/images/skills/redis.png";
 import elasticSearch from "../../public/images/skills/elasticSearch.svg";
-import firebase from "../../public/images/skills/firebase.png";
-import supabase from "../../public/images/skills/supabase.png";
 import GCP from "../../public/images/skills/GCP.svg";
 import AWS from "../../public/images/skills/aws.png";
 import docker from "../../public/images/skills/docker.svg";
 import kubernetes from "../../public/images/skills/kubernetes.png";
+import firebase from "../../public/images/skills/firebase.png";
+import supabase from "../../public/images/skills/supabase.png";
+import planetscale from "../../public/images/skills/planetscale.svg";
 import ddos from "../../public/images/skills/DDOS.webp";
 import xss from "../../public/images/skills/XSS.webp";
 import unitTest from "../../public/images/skills/unitTest.svg";
@@ -79,13 +87,11 @@ import chineseFlag from "../../public/images/skills/chineseFlag.png";
 import germanFlag from "../../public/images/skills/germanFlag.png";
 import esperantoFlag from "../../public/images/skills/esperantoFlag.png";
 import spanishFlag from "../../public/images/skills/spanishFlag.png";
-import { Transition } from "@headlessui/react";
-import { ArrowDownCircleIcon } from "@heroicons/react/24/outline";
 
-// Ajouter des images (ou du texte qui s'écrit tout seul) a gauche/droit de chanque section/sous-section
+// Ajouter du texte sur chaque section
+// Ajouter "Soft Skills (Searching, Communicating, Teaching, Prototyping)
 
 const programmingLanguages = [
-  // Programming Languages
   {
     name: "Javascript",
     level: 4,
@@ -111,7 +117,7 @@ const programmingLanguages = [
 const markupLanguages = [
   {
     name: "HTML",
-    level: 5,
+    level: 4.5,
     image: html,
   },
   {
@@ -189,6 +195,11 @@ const frameworks = [
     level: 3,
     image: solid,
   },
+  {
+    name: "SolidStart",
+    level: 3,
+    image: solid,
+  },
 ];
 const APIs = [
   {
@@ -238,16 +249,6 @@ const databases = [
     level: 1,
     image: elasticSearch,
   },
-  {
-    name: "Firebase",
-    level: 3,
-    image: firebase,
-  },
-  {
-    name: "Supabase",
-    level: 3,
-    image: supabase,
-  },
 ];
 const devops = [
   {
@@ -267,8 +268,23 @@ const devops = [
   },
   {
     name: "Kubernetes",
-    level: 1,
+    level: 1.5,
     image: kubernetes,
+  },
+  {
+    name: "Firebase",
+    level: 3,
+    image: firebase,
+  },
+  {
+    name: "Supabase",
+    level: 3,
+    image: supabase,
+  },
+  {
+    name: "PlanetScale",
+    level: 5,
+    image: planetscale,
   },
 ];
 const security = [
@@ -285,17 +301,17 @@ const security = [
 ];
 const testing = [
   {
-    name: "tests unitaires",
+    name: "unit tests",
     level: 2.5,
     image: unitTest,
   },
   {
-    name: "test d'intégration",
+    name: "integration tests",
     level: 2.5,
     image: integrationTest,
   },
   {
-    name: "Tests end-to-end",
+    name: "end-to-end tests",
     level: 3,
     image: endToEndTests,
   },
@@ -342,7 +358,7 @@ const projectManagement = [
     image: leanStartup,
   },
   {
-    name: "Méthode Agile",
+    name: "Agile methodology",
     level: 4,
     image: agile,
   },
@@ -363,7 +379,7 @@ const projectManagement = [
   },
   {
     name: "Jira",
-    level: 3,
+    level: 2,
     image: jira,
   },
   {
@@ -373,7 +389,7 @@ const projectManagement = [
   },
   {
     name: "Notion",
-    level: 1,
+    level: 3.5,
     image: notion,
   },
   {
@@ -405,12 +421,12 @@ const marketing = [
     image: SEO,
   },
   {
-    name: "Contenu",
+    name: "Content",
     level: 4,
     image: content,
   },
   {
-    name: "Tests A/B",
+    name: "A/B Testing",
     level: 4,
     image: ABTesting,
   },
@@ -433,45 +449,45 @@ const marketing = [
 
 const law = [
   {
-    name: "Droit des marques",
+    name: "Trademark law",
     level: 4,
     image: trademarkLaw,
   },
   {
-    name: "Droit du travail",
+    name: "Labour Law",
     level: 3,
     image: labourLaw,
   },
   {
-    name: "Droit des contrats",
+    name: "Contract law",
     level: 3,
     image: contractLaw,
   },
   {
-    name: "Droit des sociétés",
+    name: "Corporate law",
     level: 3,
     image: corporateLaw,
   },
 ];
 
-const langues = [
+const languages = [
   {
-    name: "Français",
+    name: "French",
     level: 5,
     image: frenchFlag,
   },
   {
-    name: "Anglais",
+    name: "English",
     level: 5,
     image: englishFlag,
   },
   {
-    name: "Chinois",
+    name: "Chinese",
     level: 5,
     image: chineseFlag,
   },
   {
-    name: "Allemand",
+    name: "German",
     level: 3,
     image: germanFlag,
   },
@@ -481,11 +497,122 @@ const langues = [
     image: esperantoFlag,
   },
   {
-    name: "Espagnol",
+    name: "Spanish",
     level: 1,
     image: spanishFlag,
   },
 ];
+
+interface Skill {
+  name: string;
+  level: number;
+  image: string | StaticImageData;
+}
+
+function DescriptionSection({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex w-full flex-col items-center justify-center font-serif text-lg">
+      {children}
+    </div>
+  );
+}
+
+function DescriptionSectionTitle({
+  subtitle,
+  className,
+}: {
+  subtitle: string;
+  className?: string;
+}) {
+  return (
+    <h2
+      className={clsx(className, "mt-6 text-2xl font-semibold text-gray-800")}
+    >
+      {subtitle}
+    </h2>
+  );
+}
+
+function SkillsCardsList({
+  skills,
+  className,
+}: {
+  skills: Skill[];
+  className?: string;
+}) {
+  return (
+    <ul
+      role="list"
+      className={clsx(
+        className,
+        "flex grid-cols-1 flex-wrap justify-center pt-6 transition sm:grid-cols-2 lg:grid-cols-4"
+      )}
+    >
+      {skills.map((skill: Skill, i: number) => (
+        <li
+          key={skill.name}
+          className={clsx(
+            (() => {
+              if ((i + 1) % 2 === 0) {
+                return "translate-x-10 min-[528px]:translate-x-0";
+              } else {
+                return " -translate-x-10 min-[528px]:-translate-x-0";
+              }
+            })(),
+            "m-3 min-w-[200px] cursor-pointer rounded-lg bg-white shadow transition duration-300 ease-in-out hover:scale-105"
+          )}
+          // style={{ minWidth: "200px" }}
+        >
+          <div className="flex items-center justify-between space-x-4 p-4">
+            <Image
+              className="h-10 w-10 flex-shrink-0 rounded-lg"
+              src={skill.image}
+              alt="Picture of me"
+            />
+            <div className="flex-1 truncate">
+              <div className="flex flex-col items-start justify-start">
+                <h3 className="truncate text-sm font-normal text-gray-900">
+                  {skill.name}
+                </h3>
+                <Rating
+                  readonly={true}
+                  initialValue={skill.level}
+                  allowFraction={true}
+                  fillIcon={<StarIconSolid className="inline-block h-5 w-5" />}
+                  fillColor="black"
+                  emptyIcon={<StarIconSolid className="inline-block h-5 w-5" />}
+                  /* Available Props */
+                />
+              </div>
+              {/* <div className="flex">{skill.level}</div> */}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function DescriptionSectionTypewriter({
+  textToBeTyped,
+}: {
+  textToBeTyped: string;
+}) {
+  const typewriterRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const typewriter = new Typewriter(typewriterRef.current, {
+      delay: 40,
+      autoStart: true,
+      cursor: "",
+    });
+    typewriter
+      .typeString(textToBeTyped)
+
+      .start();
+  }, [textToBeTyped]);
+  return <p ref={typewriterRef} className="pt-2"></p>;
+}
 
 export default function Skills() {
   const [show, setShow] = useState(false);
@@ -507,95 +634,129 @@ export default function Skills() {
         <div className="w-full max-w-7xl px-10 py-16 text-center">
           <h2
             ref={devWebRef}
-            className="mb-3 pt-6 text-3xl font-semibold sm:text-4xl"
+            className="mb-3 pt-6 text-4xl font-semibold sm:text-5xl"
           >
-            Développement Web
+            Web development
           </h2>
-          <div className="sm:flex">
-            <SkillsSubtitle className="" subtitle="Langages de programmation" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Programming languages" />
+              <DescriptionSectionTypewriter textToBeTyped="I love using typescript for the safety nets it provides." />
+            </DescriptionSection>
             <SkillsCardsList skills={programmingLanguages} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="Markup" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Markup" />
+              <p className="pt-3">
+                <span className="font-medium text-sky-600">&#60;</span>
+                <span className="text-red-700">p</span>
+                <span className="font-medium text-sky-600">&#62;</span>
+                HTML is more powerful than what most people think.
+                <span className="font-medium text-sky-600">&#60;</span>
+                <span className="text-red-700 ">p</span>
+                <span className="font-medium text-sky-600">&#62;</span>
+              </p>
+            </DescriptionSection>
             <SkillsCardsList
               className="sm:order-first"
               skills={markupLanguages}
             />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="UI" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="UI" />
+              <p className="pt-3 font-serif italic">Tailwind Rocks!</p>
+            </DescriptionSection>
             <SkillsCardsList skills={UXUI} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="Frameworks" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Frameworks" />
+            </DescriptionSection>
             <SkillsCardsList className="sm:order-first" skills={frameworks} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="APIs" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="APIs" />
+            </DescriptionSection>
             <SkillsCardsList skills={APIs} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="Bases de données" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Databases" />
+            </DescriptionSection>
             <SkillsCardsList className="sm:order-first" skills={databases} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="DevOps" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="DevOps" />
+            </DescriptionSection>
             <SkillsCardsList skills={devops} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="Sécurité" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Security" />
+            </DescriptionSection>
             <SkillsCardsList className="sm:order-first" skills={security} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="Tests" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Testing" />
+            </DescriptionSection>
             <SkillsCardsList skills={testing} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="Version Control" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Version Control" />
+            </DescriptionSection>
             <SkillsCardsList
               className="sm:order-first"
               skills={versionControl}
             />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          <div className="sm:flex">
-            <SkillsSubtitle subtitle="Editeurs de code" />
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <DescriptionSection>
+              <DescriptionSectionTitle subtitle="Code editors" />
+            </DescriptionSection>
             <SkillsCardsList skills={codeEditors} />
           </div>
-          <hr className="m-auto mt-6 mb-12 w-1/2" />
-          {/* <div className="sm:flex">
-            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
-              Gestion de projet
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">
+              Project Management
             </h2>
             <SkillsCardsList skills={projectManagement} />
           </div>
-          <div className="sm:flex">
-            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">
               Marketing
             </h2>
             <SkillsCardsList skills={marketing} />
           </div>
-          <div className="sm:flex">
-            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
-              Droit
-            </h2>
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">Droit</h2>
             <SkillsCardsList skills={law} />
           </div>
-          <div className="sm:flex">
-            <h2 className="mt-6 mb-3 text-lg font-semibold sm:text-xl">
+          <hr className="m-auto mt-12 mb-12 w-1/2" />
+          <div>
+            <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">
               Communication
             </h2>
-          <SkillsCardsList skills={langues} />
-          </div> */}
+            <SkillsCardsList skills={languages} />
+          </div>
         </div>
       </div>
     </Transition>
