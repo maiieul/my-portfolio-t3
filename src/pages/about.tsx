@@ -78,7 +78,7 @@ export default function About() {
                 Follow on GitHub
               </SocialLink> */}
               <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
-                Contactez moi via Linkedin
+                Reach out to me on Linkedin
               </SocialLink>
               <SocialLink
                 href="mailto:spencer@planetaria.tech"
