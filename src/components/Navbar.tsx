@@ -49,7 +49,7 @@ export default function Navbar() {
                   <Link
                     href="about"
                     className={clsx(
-                      "rounded-md px-2 text-sm font-medium",
+                      "cursor-pointer rounded-md px-2 text-sm font-medium",
                       router.pathname === "/about"
                         ? "font-semibold underline"
                         : "hover:scale-105 hover:font-semibold"
@@ -60,7 +60,7 @@ export default function Navbar() {
                   <Link
                     href="skills"
                     className={clsx(
-                      "rounded-md px-2 text-sm font-medium",
+                      "cursor-pointer rounded-md px-2 text-sm font-medium",
                       router.pathname === "/skills"
                         ? "font-semibold underline"
                         : "hover:scale-105 hover:font-semibold"
@@ -71,7 +71,7 @@ export default function Navbar() {
                   <Link
                     href="portfolio"
                     className={clsx(
-                      "rounded-md px-2 text-sm font-medium",
+                      "cursor-pointer rounded-md px-2 text-sm font-medium",
                       router.pathname === "/portfolio"
                         ? "font-semibold underline"
                         : "hover:scale-105 hover:font-semibold"

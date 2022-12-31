@@ -13,17 +13,20 @@ import thinking from "public/images/thinking.gif";
 import { Transition } from "@headlessui/react";
 import MeSummary from "@/markdown/MeSummary.mdx";
 
+interface SocialLinkProps {
+  className?: string;
+  href: string;
+  children: ReactNode;
+  icon: ElementType;
+  onClick?: () => void;
+}
+
 function SocialLink({
   className,
   href,
   children,
   icon: Icon,
-}: {
-  className: string;
-  href: string;
-  children: ReactNode;
-  icon: ElementType;
-}) {
+}: SocialLinkProps): JSX.Element {
   return (
     <li className={clsx(className, "flex")}>
       <Link
@@ -77,13 +80,20 @@ export default function About() {
               {/* <SocialLink href="#" icon={GitHubIcon} className="mt-4">
                 Follow on GitHub
               </SocialLink> */}
-              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+              <SocialLink
+                href="https://www.linkedin.com/in/maieul-c-087655138/"
+                icon={LinkedInIcon}
+                className="mt-4"
+              >
                 Reach out to me on Linkedin
               </SocialLink>
               <SocialLink
-                href="mailto:spencer@planetaria.tech"
+                href="mailto:maieul.chevalier@gmail.com"
                 icon={EnvelopeIcon}
                 className="mt-4"
+                onClick={() =>
+                  navigator.clipboard.writeText("maieul.chevalier@gmail.com")
+                }
               >
                 maieul.chevalier@gmail.com
               </SocialLink>
