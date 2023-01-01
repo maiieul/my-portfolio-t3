@@ -62,7 +62,7 @@ const Home: NextPage = () => {
               className="inline-flex items-center rounded-full bg-gray-800 py-3 px-5 font-bold text-white transition delay-75 ease-in-out hover:translate-y-1 hover:scale-110 hover:bg-gray-700 active:scale-95"
             >
               <InformationCircleIcon className="mr-2 h-5 w-5" />
-              <span>En savoir plus</span>
+              <span>Learn more</span>
             </button>
           </div>
         </Transition>

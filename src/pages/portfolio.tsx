@@ -41,25 +41,6 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-24">
-          <div className="">
-            <div className="prose mt-3 text-gray-500">
-              <MemoryGameMarkdown />
-            </div>
-          </div>
-
-          <div className="mt-6 flex justify-center rounded-lg bg-white shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
-            <div className="relative h-[700px] w-full overflow-hidden">
-              <iframe
-                src="https://maieulchevalier.github.io/coding-challenge-14/"
-                title="Coding Challenge 14"
-                className=" absolute top-0 left-0 h-[700px] w-full overflow-hidden"
-                scrolling="no"
-              />
-            </div>
-          </div>
-        </div>
-
         <div className="relative mt-12 sm:mt-16 lg:mt-24">
           <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-24">
             <div className="lg:order-2">
@@ -68,21 +49,17 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div>
-              <div className="mt-6 flex -rotate-3 cursor-pointer items-center justify-center rounded-lg bg-white p-2 shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
-                <Image
-                  src={smartDemo}
-                  alt="Data Asso website"
-                  className="w-auto bg-zinc-100 object-cover dark:bg-zinc-800"
-                />
-              </div>
-              <div className="mt-10 flex -rotate-3 cursor-pointer items-center justify-center rounded-lg bg-white p-2 shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
-                <Image
-                  src={smartDemo3}
-                  alt="Data Asso website"
-                  className="w-auto bg-zinc-100 object-cover dark:bg-zinc-800"
-                />
-              </div>
+            <div className="flex flex-col items-center ">
+              <Image
+                src={smartDemo}
+                alt="Data Asso website"
+                className="mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
+              />
+              <Image
+                src={smartDemo3}
+                alt="Data Asso website"
+                className=" mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
+              />
             </div>
           </div>
         </div>
@@ -111,42 +88,6 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
-
-        <div className="relative mt-12 sm:mt-16 lg:mt-24">
-          <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-24">
-            <div className="lg:order-2">
-              <div className="prose mt-3 text-gray-500">
-                <SmartBrainMarkdown />
-              </div>
-            </div>
-
-            <div className="mt-6 flex justify-center rounded-lg bg-white shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
-              <div className="relative h-[720px] w-full overflow-hidden">
-                <iframe
-                  src="https://portfolio-smart-brain-boost.vercel.app/"
-                  title="smart-brain app"
-                  className=" absolute top-0 left-0 h-[720px] w-full overflow-hidden"
-                  scrolling="no"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-24">
-          <div className="">
-            <div className="prose mt-3 text-gray-500">
-              <NeedForGoodMarkdown />
-            </div>
-          </div>
-
-          <Image
-            src={needForGoodDemo}
-            alt="need for good app demo"
-            className="mt-10 h-72 w-auto -rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800 lg:mt-0"
-          />
-        </div>
-
         <div className="relative mt-12 sm:mt-16 lg:mt-24">
           <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-24">
             <div className="lg:order-2">
@@ -177,6 +118,60 @@ export default function Portfolio() {
                   className=" h-[600px] w-auto rotate-1 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-24">
+          <div className="">
+            <div className="prose mt-3 text-gray-500">
+              <NeedForGoodMarkdown />
+            </div>
+          </div>
+
+          <Image
+            src={needForGoodDemo}
+            alt="need for good app demo"
+            className="mt-10 h-72 w-auto -rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800 lg:mt-0"
+          />
+        </div>
+
+        <div className="relative mt-12 sm:mt-16 lg:mt-24">
+          <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:items-center lg:gap-24">
+            <div className="lg:order-2">
+              <div className="prose mt-3 text-gray-500">
+                <SmartBrainMarkdown />
+              </div>
+            </div>
+
+            <div className="mt-6 flex justify-center rounded-lg bg-white shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
+              <div className="relative h-[720px] w-full overflow-hidden">
+                <iframe
+                  src="https://portfolio-smart-brain-boost.vercel.app/"
+                  title="smart-brain app"
+                  className=" absolute top-0 left-0 h-[720px] w-full overflow-hidden"
+                  scrolling="no"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-24">
+          <div className="">
+            <div className="prose mt-3 text-gray-500">
+              <MemoryGameMarkdown />
+            </div>
+          </div>
+
+          <div className="mt-6 flex justify-center rounded-lg bg-white shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
+            <div className="relative h-[700px] w-full overflow-hidden">
+              <iframe
+                src="https://maieulchevalier.github.io/coding-challenge-14/"
+                title="Coding Challenge 14"
+                className=" absolute top-0 left-0 h-[700px] w-full overflow-hidden"
+                scrolling="no"
+              />
             </div>
           </div>
         </div>

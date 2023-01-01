@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav>
+      <nav className="flex justify-center">
         <div className="absolute z-50 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
@@ -49,45 +49,45 @@ export default function Navbar() {
                   <Link
                     href="about"
                     className={clsx(
-                      "cursor-pointer rounded-md px-2 text-sm font-medium",
+                      "cursor-pointer rounded-md px-2 font-medium",
                       router.pathname === "/about"
-                        ? "font-semibold underline"
-                        : "hover:scale-105 hover:font-semibold"
+                        ? "text-orange-400 underline"
+                        : "hover:text-orange-400"
                     )}
                   >
-                    À propos
+                    About
                   </Link>
                   <Link
                     href="skills"
                     className={clsx(
-                      "cursor-pointer rounded-md px-2 text-sm font-medium",
+                      "cursor-pointer rounded-md px-2 font-medium",
                       router.pathname === "/skills"
-                        ? "font-semibold underline"
-                        : "hover:scale-105 hover:font-semibold"
+                        ? "text-red-400 underline"
+                        : "hover:text-red-400"
                     )}
                   >
-                    Compétences
+                    Skills
                   </Link>
                   <Link
                     href="portfolio"
                     className={clsx(
-                      "cursor-pointer rounded-md px-2 text-sm font-medium",
+                      "cursor-pointer rounded-md px-2 font-medium",
                       router.pathname === "/portfolio"
-                        ? "font-semibold underline"
-                        : "hover:scale-105 hover:font-semibold"
+                        ? "text-emerald-400 underline"
+                        : "hover:text-emerald-400"
                     )}
                   >
                     Portfolio
                   </Link>
                   {/* <Link
                     href="#"
-                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    className="rounded-md px-3 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                   >
                     Projects
                   </Link>
                   <Link
                     href="#"
-                    className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    className="rounded-md px-3 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                   >
                     Calendar
                   </Link> */}

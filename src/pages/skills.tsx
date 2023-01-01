@@ -341,12 +341,12 @@ const codeEditors = [
   },
   {
     name: "Vim",
-    level: 3,
+    level: 2,
     image: vim,
   },
   {
     name: "Nano",
-    level: 4,
+    level: 3,
     image: nano,
   },
 ];
@@ -676,6 +676,17 @@ export default function Skills() {
           <div>
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="Frameworks" />
+              <p className="pt-3">
+                <span className="font-medium text-sky-600">&#60;</span>
+                <span className="text-yellow-500">WhoWins</span>
+                <span className="font-medium text-sky-600">&#62;</span>
+                React's still my favorite for its rich ecosystem. I can use Vue
+                if needed. I find Svelte beautiful to write. Solid is really
+                solid.
+                <span className="font-medium text-sky-600">&#60;/</span>
+                <span className="text-yellow-500">WhoWins</span>
+                <span className="font-medium text-sky-600">&#62;</span>
+              </p>
             </DescriptionSection>
             <SkillsCardsList className="sm:order-first" skills={frameworks} />
           </div>
@@ -683,6 +694,7 @@ export default function Skills() {
           <div>
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="APIs" />
+              <p className="pt-3">tRPC is incredible for starting up!</p>
             </DescriptionSection>
             <SkillsCardsList skills={APIs} />
           </div>
@@ -690,6 +702,10 @@ export default function Skills() {
           <div>
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="Databases" />
+              <p className="pt-3">
+                Relational, graph, document or key/value stores, I know them
+                pretty well.
+              </p>
             </DescriptionSection>
             <SkillsCardsList className="sm:order-first" skills={databases} />
           </div>
@@ -697,6 +713,9 @@ export default function Skills() {
           <div>
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="DevOps" />
+              <p className="pt-3">
+                I cut my teeth on AWS but recently got seduced by serverless.
+              </p>
             </DescriptionSection>
             <SkillsCardsList skills={devops} />
           </div>
@@ -711,6 +730,10 @@ export default function Skills() {
           <div>
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="Testing" />
+              <p className="pt-3">
+                Testing isn't my greatest strength. I believe 98% of bugs can be
+                avoided with typescript and trpc.
+              </p>
             </DescriptionSection>
             <SkillsCardsList skills={testing} />
           </div>
@@ -747,7 +770,7 @@ export default function Skills() {
           </div>
           <hr className="m-auto mt-12 mb-12 w-1/2" />
           <div>
-            <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">Droit</h2>
+            <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">Law</h2>
             <SkillsCardsList skills={law} />
           </div>
           <hr className="m-auto mt-12 mb-12 w-1/2" />
