@@ -27,11 +27,11 @@ export default function Portfolio() {
             <span> — Albert Einstein</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl whitespace-pre-line text-center text-xl text-gray-500">
-            After 5 years of web development, I feel proud of my experience and
-            what I've learned from it. Having worked on big and small
-            entrepreneurial projects, I've tremendously improved myself at
-            designing, planning, and developing in an agile and lean-startup
-            way.
+            After 5 years working on projects big and small, I feel proud of my
+            experience and everything I've learned from it. Thanks to all the
+            hard work I've been putting in, I've tremendously improved myself at
+            designing, planning, and executing with the lean-startup
+            methodology.
             {"\n"}
             {"\n"}
             <strong>

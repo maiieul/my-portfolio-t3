@@ -15,15 +15,14 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid";
 
 import thinking from "public/images/thinking.gif";
 import MeSummary from "@/markdown/MeSummary.mdx";
+import BasicNotification from "@/components/BasicNotification";
+import { useAtom } from "jotai";
+import { showNotificationAtom } from "@/state/notifications";
+import { EmailLink } from "@/components/EmailLink";
 
 export default function About() {
   const [show, setShow] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
-  if (showNotification) {
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 3000);
-  }
+  const [, setShowNotification] = useAtom(showNotificationAtom);
 
   useEffect(() => {
     setShow(true);
@@ -74,7 +73,14 @@ export default function About() {
                   </Link>
                 </li>
                 <li className="mt-4 flex">
-                  <div
+                  <EmailLink className="group flex cursor-pointer font-medium text-zinc-800 transition  hover:text-red-400 dark:text-red-400 dark:hover:text-red-400">
+                    <EnvelopeIcon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-red-400" />
+                    <span className="ml-4">Send me an email</span>
+                    <span>
+                      <ArrowTopRightOnSquareIcon className="ml-1 inline h-3 w-3" />
+                    </span>
+                  </EmailLink>
+                  {/* <div
                     className="group flex cursor-pointer font-medium text-zinc-800 transition  hover:text-red-400 dark:text-red-400 dark:hover:text-red-400"
                     onClick={() => {
                       setShowNotification(true);
@@ -82,70 +88,14 @@ export default function About() {
                         "maieul.chevalier@gmail.com"
                       );
                     }}
-                  >
-                    <EnvelopeIcon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-red-400" />
-                    <span className="ml-4">Send me an email</span>
-                    <span>
-                      <ArrowTopRightOnSquareIcon className="ml-1 inline h-3 w-3" />
-                    </span>
-                  </div>
+                  ></div> */}
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </Transition>
-      <>
-        {/* Global notification live region, render this permanently at the end of the document */}
-        <div
-          aria-live="assertive"
-          className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
-        >
-          <div className="flex h-full w-full items-end justify-end space-y-4">
-            {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
-            <Transition
-              show={showNotification}
-              as={Fragment}
-              enter="transform ease-out duration-300 transition"
-              enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
-              enterTo="translate-y-0 opacity-100 sm:translate-x-0"
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-                <div className="p-4">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <CheckCircleIcon
-                        className="h-6 w-6 text-green-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div className="ml-3 w-0 flex-1 pt-0.5">
-                      <p className="text-sm font-medium text-gray-900">
-                        Email copied to clipboard
-                      </p>
-                    </div>
-                    <div className="ml-4 flex flex-shrink-0">
-                      <button
-                        type="button"
-                        className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        onClick={() => {
-                          setShowNotification(false);
-                        }}
-                      >
-                        <span className="sr-only">Close</span>
-                        <XMarkIcon className="h-5 w-5" aria-hidden="true" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Transition>
-          </div>
-        </div>
-      </>
+      <BasicNotification text="Email copied to clipboard" />
     </>
   );
 }

@@ -51,8 +51,8 @@ export default function Navbar() {
                     className={clsx(
                       "cursor-pointer rounded-md px-2 font-medium",
                       router.pathname === "/about"
-                        ? "text-orange-400 underline"
-                        : "hover:text-orange-400"
+                        ? "font-medium text-gray-600 underline"
+                        : "font-medium text-black hover:text-gray-600 hover:underline"
                     )}
                   >
                     About
@@ -62,8 +62,8 @@ export default function Navbar() {
                     className={clsx(
                       "cursor-pointer rounded-md px-2 font-medium",
                       router.pathname === "/skills"
-                        ? "text-red-400 underline"
-                        : "hover:text-red-400"
+                        ? "font-medium text-gray-600 underline"
+                        : "font-medium text-black hover:text-gray-600 hover:underline"
                     )}
                   >
                     Skills
@@ -73,8 +73,8 @@ export default function Navbar() {
                     className={clsx(
                       "cursor-pointer rounded-md px-2 font-medium",
                       router.pathname === "/portfolio"
-                        ? "text-emerald-400 underline"
-                        : "hover:text-emerald-400"
+                        ? "font-medium text-gray-600 underline"
+                        : "font-medium text-black hover:text-gray-600 hover:underline"
                     )}
                   >
                     Portfolio
