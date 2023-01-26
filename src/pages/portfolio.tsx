@@ -50,16 +50,20 @@ export default function Portfolio() {
             </div>
 
             <div className="flex flex-col items-center ">
-              <Image
-                src={smartDemo}
-                alt="Data Asso website"
-                className="mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
-              <Image
-                src={smartDemo3}
-                alt="Data Asso website"
-                className=" mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
+              <a href="https://smart-steel.vercel.app/">
+                <Image
+                  src={smartDemo}
+                  alt="Data Asso website"
+                  className="mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
+                />
+              </a>
+              <a href="https://smart-steel.vercel.app/">
+                <Image
+                  src={smartDemo3}
+                  alt="Data Asso website"
+                  className=" mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -73,18 +77,22 @@ export default function Portfolio() {
 
           <div>
             <div className="mt-6 flex rotate-3 cursor-pointer items-center justify-center rounded-lg bg-white p-2 shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
-              <Image
-                src={dataAsso}
-                alt="Data Asso website"
-                className="w-auto bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
+              <a href="https://data-asso.fr">
+                <Image
+                  src={dataAsso}
+                  alt="Data Asso website"
+                  className="w-auto bg-zinc-100 object-cover dark:bg-zinc-800"
+                />
+              </a>
             </div>
             <div className="mt-6 flex rotate-3 cursor-pointer items-center justify-center rounded-lg bg-white p-2 shadow-[0.5px_0.5px_10px_rgba(0,0,0,0.3)]">
-              <Image
-                src={dataAssoViz}
-                alt="Data Asso website"
-                className="w-auto bg-zinc-100 object-cover dark:bg-zinc-800"
-              />
+              <a href="https://data-asso.fr">
+                <Image
+                  src={dataAssoViz}
+                  alt="Data Asso website"
+                  className="w-auto bg-zinc-100 object-cover dark:bg-zinc-800"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -129,11 +137,13 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <Image
-            src={needForGoodDemo}
-            alt="need for good app demo"
-            className="mt-10 h-72 w-auto -rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800 lg:mt-0"
-          />
+          <a href="https://need-for-good.vercel.app/">
+            <Image
+              src={needForGoodDemo}
+              alt="need for good app demo"
+              className="mt-10 h-72 w-auto -rotate-3 cursor-pointer rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800 lg:mt-0"
+            />
+          </a>
         </div>
 
         <div className="relative mt-12 sm:mt-16 lg:mt-24">
