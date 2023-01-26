@@ -8,7 +8,7 @@ import community from "public/images/portfolio/community.webp";
 import community2 from "public/images/portfolio/community2.webp";
 import community3 from "public/images/portfolio/community3.webp";
 import smartDemo from "public/images/portfolio/SMART-demo.gif";
-import smartDemo3 from "public/images/portfolio/SMART-demo3.gif";
+import smartDemo6 from "public/images/portfolio/SMART-demo6.gif";
 
 import MemoryGameMarkdown from "@/markdown/MemoryGame.mdx";
 import CommunityMarkdown from "@/markdown/Community.mdx";
@@ -59,7 +59,7 @@ export default function Portfolio() {
               </a>
               <a href="https://smart-steel.vercel.app/">
                 <Image
-                  src={smartDemo3}
+                  src={smartDemo6}
                   alt="Data Asso website"
                   className=" mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
                 />
