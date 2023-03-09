@@ -1,14 +1,15 @@
+import "../styles/globals.css";
 import type { NextPage } from "next";
 import type { ReactElement, ReactNode } from "react";
+import type { AppProps } from "next/app";
 // import { MDXProvider } from "@mdx-js/react";
 
-import { type AppType } from "next/app";
 import Head from "next/head";
 import LayoutApp from "@/components/LayoutApp";
 
 import { trpc } from "../utils/trpc";
 
-import "../styles/globals.css";
+import "../../i18n";
 
 // import { Markdown } from "@/components/Markdown";
 
@@ -19,7 +20,7 @@ export type NextPageWithLayout<P = Record<string, never>, IP = P> = NextPage<
   getLayout?: (page: ReactElement) => ReactNode;
 };
 
-type AppTypeWithLayout = AppType & {
+type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 // const components = {
@@ -28,7 +29,7 @@ type AppTypeWithLayout = AppType & {
 //   h3: Markdown.H3,
 //   p: Markdown.P,
 // };
-function MyApp({ Component }: AppTypeWithLayout): JSX.Element {
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page: ReactElement) => page);
 
   return (
@@ -122,7 +123,9 @@ function MyApp({ Component }: AppTypeWithLayout): JSX.Element {
 --> */}
       </Head>
       {/* <MDXProvider components={components}> */}
-      <LayoutApp data-theme="light">{getLayout(<Component />)}</LayoutApp>
+      <LayoutApp data-theme="light">
+        {getLayout(<Component {...pageProps} />)}
+      </LayoutApp>
       {/* </MDXProvider> */}
     </>
   );

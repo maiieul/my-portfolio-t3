@@ -1,28 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import { Transition } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import {
-  ArrowTopRightOnSquareIcon,
-  XMarkIcon,
-} from "@heroicons/react/20/solid";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { LinkedInIcon } from "public/icons/LinkedinIcon";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 
 import thinking from "public/images/thinking.gif";
 import MeSummary from "@/markdown/MeSummary.mdx";
 import BasicNotification from "@/components/BasicNotification";
-import { useAtom } from "jotai";
-import { showNotificationAtom } from "@/state/notifications";
+
 import { EmailLink } from "@/components/EmailLink";
 
 export default function About() {
   const [show, setShow] = useState(false);
-  const [, setShowNotification] = useAtom(showNotificationAtom);
 
   useEffect(() => {
     setShow(true);
@@ -80,15 +73,6 @@ export default function About() {
                       <ArrowTopRightOnSquareIcon className="ml-1 inline h-3 w-3" />
                     </span>
                   </EmailLink>
-                  {/* <div
-                    className="group flex cursor-pointer font-medium text-zinc-800 transition  hover:text-red-400 dark:text-red-400 dark:hover:text-red-400"
-                    onClick={() => {
-                      setShowNotification(true);
-                      navigator.clipboard.writeText(
-                        "maieul.chevalier@gmail.com"
-                      );
-                    }}
-                  ></div> */}
                 </li>
               </ul>
             </div>

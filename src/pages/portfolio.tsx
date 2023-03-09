@@ -57,13 +57,6 @@ export default function Portfolio() {
                   className="mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
                 />
               </a>
-              <a href="https://smart-steel.vercel.app/">
-                <Image
-                  src={smartDemo6}
-                  alt="Data Asso website"
-                  className=" mt-6 h-72 w-auto -rotate-3 cursor-pointer rounded-lg bg-zinc-100 object-cover dark:bg-zinc-800"
-                />
-              </a>
             </div>
           </div>
         </div>

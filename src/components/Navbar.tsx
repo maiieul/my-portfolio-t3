@@ -9,7 +9,11 @@ import profilePicture from "../../public/images/profile-picture.webp";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
+import { useTranslation } from "react-i18next";
+
 export default function Navbar() {
+  const { t } = useTranslation();
+  console.log("t", t("nav.skills"));
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -55,7 +59,7 @@ export default function Navbar() {
                         : "font-medium text-black hover:text-gray-600 hover:underline"
                     )}
                   >
-                    About
+                    {t("nav.about")}
                   </Link>
                   <Link
                     href="skills"
@@ -66,7 +70,7 @@ export default function Navbar() {
                         : "font-medium text-black hover:text-gray-600 hover:underline"
                     )}
                   >
-                    Skills
+                    {t("nav.skills")}
                   </Link>
                   <Link
                     href="portfolio"
@@ -77,7 +81,7 @@ export default function Navbar() {
                         : "font-medium text-black hover:text-gray-600 hover:underline"
                     )}
                   >
-                    Portfolio
+                    {t("nav.portfolio")}
                   </Link>
                   {/* <Link
                     href="#"

@@ -33,7 +33,7 @@ module.exports = withPWA({
   reactStrictMode: false,
   // swcMinify: true,
   i18n: {
-    locales: ["en"],
+    locales: ["en", "fr"],
     defaultLocale: "en",
   },
   eslint: {
