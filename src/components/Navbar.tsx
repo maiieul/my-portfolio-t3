@@ -23,10 +23,52 @@ export default function Navbar() {
     setOpen(false);
   }
 
+  const links = {
+    about: (
+      <Link
+        href="about"
+        className={clsx(
+          "cursor-pointer rounded-md px-2 font-medium",
+          router.pathname === "/about"
+            ? "font-medium text-gray-600 underline"
+            : "font-medium text-black hover:text-gray-600 hover:underline"
+        )}
+      >
+        {t("nav.about")}
+      </Link>
+    ),
+    skills: (
+      <Link
+        href="skills"
+        className={clsx(
+          "cursor-pointer rounded-md px-2 font-medium",
+          router.pathname === "/skills"
+            ? "font-medium text-gray-600 underline"
+            : "font-medium text-black hover:text-gray-600 hover:underline"
+        )}
+      >
+        {t("nav.skills")}
+      </Link>
+    ),
+    portfolio: (
+      <Link
+        href="portfolio"
+        className={clsx(
+          "cursor-pointer rounded-md px-2 font-medium",
+          router.pathname === "/portfolio"
+            ? "font-medium text-gray-600 underline"
+            : "font-medium text-black hover:text-gray-600 hover:underline"
+        )}
+      >
+        {t("nav.portfolio")}
+      </Link>
+    ),
+  };
+
   return (
     <>
       <nav className="flex justify-center">
-        <div className="absolute z-50 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
@@ -36,142 +78,13 @@ export default function Navbar() {
                   alt="Picture of me"
                   onClick={() => router.push("/")}
                 />
-                {/* <img
-                  className="block h-8 w-auto lg:hidden"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="picture of me"
-                />
-                <img
-                  className="hidden h-8 w-auto lg:block"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                  alt="Your Company"
-                /> */}
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                  <Link
-                    href="about"
-                    className={clsx(
-                      "cursor-pointer rounded-md px-2 font-medium",
-                      router.pathname === "/about"
-                        ? "font-medium text-gray-600 underline"
-                        : "font-medium text-black hover:text-gray-600 hover:underline"
-                    )}
-                  >
-                    {t("nav.about")}
-                  </Link>
-                  <Link
-                    href="skills"
-                    className={clsx(
-                      "cursor-pointer rounded-md px-2 font-medium",
-                      router.pathname === "/skills"
-                        ? "font-medium text-gray-600 underline"
-                        : "font-medium text-black hover:text-gray-600 hover:underline"
-                    )}
-                  >
-                    {t("nav.skills")}
-                  </Link>
-                  <Link
-                    href="portfolio"
-                    className={clsx(
-                      "cursor-pointer rounded-md px-2 font-medium",
-                      router.pathname === "/portfolio"
-                        ? "font-medium text-gray-600 underline"
-                        : "font-medium text-black hover:text-gray-600 hover:underline"
-                    )}
-                  >
-                    {t("nav.portfolio")}
-                  </Link>
-                  {/* <Link
-                    href="#"
-                    className="rounded-md px-3 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                  >
-                    Projects
-                  </Link>
-                  <Link
-                    href="#"
-                    className="rounded-md px-3 py-2 font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                  >
-                    Calendar
-                  </Link> */}
+                  {links.about}
+                  {links.skills}
+                  {links.portfolio}
                 </div>
-              </div>
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex items-center">
-                {/* <button
-                  type="button"
-                  className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button> */}
-
-                {/* Profile dropdown */}
-                {/* <Menu as="div" className="relative ml-3">
-                  <div>
-                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt="Picture of me"
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={clsx(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={clsx(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={clsx(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
-                            )}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu> */}
               </div>
             </div>
             <div className="-mr-2 flex sm:hidden">
@@ -208,9 +121,7 @@ export default function Navbar() {
                       <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                         <div className="px-4 sm:px-6">
                           <div className="flex items-start justify-between">
-                            <Dialog.Title className="text-lg font-medium text-gray-900">
-                              Panel title
-                            </Dialog.Title>
+                            <Dialog.Title className="text-lg font-medium text-gray-900"></Dialog.Title>
                             <div className="ml-3 flex h-7 items-center">
                               <button
                                 type="button"
@@ -226,10 +137,14 @@ export default function Navbar() {
                             </div>
                           </div>
                         </div>
-                        <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                          {/* Replace with your content */}
-
-                          {/* /End replace */}
+                        <div className="mt-2" onClick={() => setOpen(false)}>
+                          {links.about}
+                        </div>
+                        <div className="mt-2" onClick={() => setOpen(false)}>
+                          {links.skills}
+                        </div>
+                        <div className="mt-2" onClick={() => setOpen(false)}>
+                          {links.portfolio}
                         </div>
                       </div>
                     </Dialog.Panel>

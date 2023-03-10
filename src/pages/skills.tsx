@@ -714,7 +714,8 @@ export default function Skills() {
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="DevOps" />
               <p className="pt-3">
-                I cut my teeth on AWS but recently got seduced by serverless.
+                I have recently been seduced by serverless for the simplicity,
+                speed of development and scalability it brings to the table.
               </p>
             </DescriptionSection>
             <SkillsCardsList skills={devops} />
@@ -723,6 +724,9 @@ export default function Skills() {
           <div>
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="Security" />
+              <p className="pt-3">
+                Have you ever set up rate limiting yourself?
+              </p>
             </DescriptionSection>
             <SkillsCardsList className="sm:order-first" skills={security} />
           </div>
@@ -731,8 +735,8 @@ export default function Skills() {
             <DescriptionSection>
               <DescriptionSectionTitle subtitle="Testing" />
               <p className="pt-3">
-                Testing isn't my greatest strength. I believe 98% of bugs can be
-                avoided with typescript and trpc.
+                Testing isn't my greatest strength. I prefer using typescript
+                and tRPC if possible.
               </p>
             </DescriptionSection>
             <SkillsCardsList skills={testing} />
@@ -759,6 +763,9 @@ export default function Skills() {
             <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">
               Project Management
             </h2>
+            <p className="pt-3">
+              The lean-startup is my project management bible.
+            </p>
             <SkillsCardsList skills={projectManagement} />
           </div>
           <hr className="m-auto mt-12 mb-12 w-1/2" />
@@ -766,11 +773,18 @@ export default function Skills() {
             <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">
               Marketing
             </h2>
+            <p className="pt-3">
+              I love the power of analytics, especially in combination with A/B
+              testing and the pirate AARRR metrics.
+            </p>
             <SkillsCardsList skills={marketing} />
           </div>
           <hr className="m-auto mt-12 mb-12 w-1/2" />
           <div>
             <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">Law</h2>
+            <p className="pt-3">
+              I registered my own trademarks myself, in France and in China.
+            </p>
             <SkillsCardsList skills={law} />
           </div>
           <hr className="m-auto mt-12 mb-12 w-1/2" />
@@ -778,6 +792,14 @@ export default function Skills() {
             <h2 className="pt-12 text-4xl font-semibold sm:text-5xl">
               Communication
             </h2>
+            <p className="pt-3">
+              <span className="italic">
+                If you talk to a man in a language he understands, that goes to
+                his head. If you talk to him in his language, that goes to his
+                heart.
+              </span>
+              — Nelson Mandela
+            </p>
             <SkillsCardsList skills={languages} />
           </div>
         </div>

@@ -41,8 +41,8 @@ const Home: NextPage = () => {
                 "max-w-2xl text-4xl font-bold text-gray-800 sm:text-5xl md:text-6xl"
               )}
             >
-              {/* Une vision à 360° pour faire décoller vos projets 🚀 */}A 360°
-              vision to boost your projects 🚀
+              {/* Une vision à 360° pour faire décoller vos projets 🚀 */}A
+              global vision to boost your projects 🚀
             </h1>
             <br />
 
@@ -53,8 +53,8 @@ const Home: NextPage = () => {
               risques d&apos;échecs à toute étape de votre projet. */}
               With my international profile and my entrepreneurial experience as
               a web developer, I can help you see the whole picture in detail
-              and thus minimize the risks of failure at any stage of your
-              project.
+              and thus significantly reduce the risks of failure at any stage of
+              your project.
             </h2>
             <br />
             <button
