@@ -100,6 +100,9 @@ devDependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.8
     version: 0.5.10(tailwindcss@3.3.3)
+  '@types/mdx':
+    specifier: ^2.0.7
+    version: 2.0.7
   '@types/node':
     specifier: 18.0.0
     version: 18.0.0
@@ -1919,7 +1922,6 @@ packages:
 
   /@types/mdx@2.0.7:
     resolution: {integrity: sha512-BG4tyr+4amr3WsSEmHn/fXPqaCba/AYZ7dsaQTiavihQunHSIxk+uAtqsjvicNpyHN6cm+B9RVrUOtW9VzIKHw==}
-    dev: false
 
   /@types/minimatch@5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}

@@ -21,6 +21,6 @@
     }
 
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.js", "**/*.jsx", "**/*.mjs", "**/*.mdx", "utils/mapReducers.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.js", "**/*.jsx", "**/*.mjs", "utils/mapReducers.js"],
   "exclude": ["node_modules"]
 }
