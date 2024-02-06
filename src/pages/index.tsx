@@ -41,8 +41,7 @@ const Home: NextPage = () => {
                 "max-w-2xl text-4xl font-bold text-gray-800 sm:text-5xl md:text-6xl"
               )}
             >
-              {/* Une vision à 360° pour faire décoller vos projets 🚀 */}A
-              global vision to boost your projects 🚀
+              Working on the future of the web
             </h1>
             <br />
 
@@ -58,8 +57,8 @@ const Home: NextPage = () => {
             </h2>
             <br />
             <button
-              onClick={() => router.push("/about")}
-              className="inline-flex items-center rounded-full bg-gray-800 py-3 px-5 font-bold text-white transition delay-75 ease-in-out hover:translate-y-1 hover:scale-110 hover:bg-gray-700 active:scale-95"
+              onClick={() => router.push("/about-me")}
+              className="inline-flex items-center rounded-full bg-gray-800 px-5 py-3 font-bold text-white transition delay-75 ease-in-out hover:translate-y-1 hover:scale-110 hover:bg-gray-700 active:scale-95"
             >
               <InformationCircleIcon className="mr-2 h-5 w-5" />
               <span>Learn more</span>

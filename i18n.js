@@ -10,9 +10,10 @@ const resources = {
   en: {
     translation: {
       nav: {
-        about: "About",
+        about: "About me",
         skills: "Skills",
         portfolio: "Portfolio",
+        blog: "Blog",
       },
       about: {
         content: MeSummaryEN,
@@ -26,9 +27,10 @@ const resources = {
   fr: {
     translation: {
       nav: {
-        about: "À propos",
+        about: "À propos de moi",
         skills: "Compétences",
         portfolio: "Portfolio",
+        blog: "Blog",
       },
     },
   },

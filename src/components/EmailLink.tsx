@@ -16,8 +16,8 @@ export function EmailLink({
     <a
       className={className}
       onClick={() => {
+        window.navigator.clipboard.writeText("maieul.chevalier@gmail.com");
         setShowNotification(true);
-        navigator.clipboard.writeText("maieul.chevalier@gmail.com");
       }}
     >
       {children}

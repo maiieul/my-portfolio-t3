@@ -26,10 +26,10 @@ export default function Navbar() {
   const links = {
     about: (
       <Link
-        href="about"
+        href="about-me"
         className={clsx(
           "cursor-pointer rounded-md px-2 font-medium",
-          router.pathname === "/about"
+          router.pathname === "/about-me"
             ? "font-medium text-gray-600 underline"
             : "font-medium text-black hover:text-gray-600 hover:underline"
         )}
@@ -63,6 +63,19 @@ export default function Navbar() {
         {t("nav.portfolio")}
       </Link>
     ),
+    blog: (
+      <Link
+        href="blog"
+        className={clsx(
+          "cursor-pointer rounded-md px-2 font-medium",
+          router.pathname === "/blog"
+            ? "font-medium text-gray-600 underline"
+            : "font-medium text-black hover:text-gray-600 hover:underline"
+        )}
+      >
+        {t("nav.blog")}
+      </Link>
+    ),
   };
 
   return (
@@ -84,6 +97,7 @@ export default function Navbar() {
                   {links.about}
                   {links.skills}
                   {links.portfolio}
+                  {links.blog}
                 </div>
               </div>
             </div>

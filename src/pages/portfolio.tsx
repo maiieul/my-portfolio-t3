@@ -8,7 +8,6 @@ import community from "public/images/portfolio/community.webp";
 import community2 from "public/images/portfolio/community2.webp";
 import community3 from "public/images/portfolio/community3.webp";
 import smartDemo from "public/images/portfolio/SMART-demo.gif";
-import smartDemo6 from "public/images/portfolio/SMART-demo6.gif";
 
 import MemoryGameMarkdown from "@/markdown/MemoryGame.mdx";
 import CommunityMarkdown from "@/markdown/Community.mdx";
@@ -132,7 +131,7 @@ export default function Portfolio() {
                 <iframe
                   src="https://portfolio-smart-brain-boost.vercel.app/"
                   title="smart-brain app"
-                  className=" absolute top-0 left-0 h-[720px] w-full overflow-hidden"
+                  className=" absolute left-0 top-0 h-[720px] w-full overflow-hidden"
                   scrolling="no"
                 />
               </div>
@@ -152,7 +151,7 @@ export default function Portfolio() {
               <iframe
                 src="https://maieulchevalier.github.io/coding-challenge-14/"
                 title="Coding Challenge 14"
-                className=" absolute top-0 left-0 h-[700px] w-full overflow-hidden"
+                className=" absolute left-0 top-0 h-[700px] w-full overflow-hidden"
                 scrolling="no"
               />
             </div>
